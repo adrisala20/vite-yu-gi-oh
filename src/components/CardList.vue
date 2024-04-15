@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <CardComponent />
+    <div v-for="card in store.card" :key="card.id">  
+        <CardComponent :id="card.id"/>
     </div>
 </template>
 
@@ -8,9 +8,14 @@
     import {store} from '../store.js';
     import CardComponent from './CardComponent.vue'
     export default {
-        name:'CardList.vue',
+        name:'CardList',
         components:{
             CardComponent,
+            data(){
+                return{
+                    store
+                }
+            }
         }
     }
 </script>

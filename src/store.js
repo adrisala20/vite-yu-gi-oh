@@ -6,5 +6,5 @@ export const store = reactive({
         "type": "type",
         "status": "archetype"
     },
-    card:[]
+    cards:[],
 })
