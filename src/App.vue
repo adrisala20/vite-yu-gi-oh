@@ -30,9 +30,12 @@
       })
      }
     },
+    created(){
+      this.getCharacters();
+    },
     mounted(){
-      console.log(store)
-    }
+      console.log(this.store)
+    },
     
   }
 </script>

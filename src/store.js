@@ -3,6 +3,8 @@ export const store = reactive({
     apiUrl:'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
     endPoints:{
         "name":"name",
-        "status": "archetype",
-    }
+        "type": "type",
+        "status": "archetype"
+    },
+    card:[]
 })

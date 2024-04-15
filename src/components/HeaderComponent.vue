@@ -1,7 +1,7 @@
 <template>
-    <div>
-       header
-    </div>
+    <header class="container">
+        <h2 class="text-capitalize"> yu-gi-oh api</h2>
+    </header>
 </template>
 
 <script>
