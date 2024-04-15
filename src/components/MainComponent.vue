@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import {store} from '../store.js';
     import CardList from './CardList.vue';
     export default {
         name:'MainComponent',

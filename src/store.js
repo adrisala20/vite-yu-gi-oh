@@ -4,7 +4,6 @@ export const store = reactive({
     endPoints:{
         "name":"name",
         "type": "type",
-        "status": "archetype"
     },
     cards:[],
 })
