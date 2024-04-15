@@ -25,7 +25,7 @@
     methods:{
      getCharacters(){
       axios.get(this.store.apiUrl).then((res)=>{
-        this.store.cards = res.data.data;
+        this.store.card = res.data.data, console.log(this.store.card[0]);
       })
      }
     },
@@ -33,7 +33,7 @@
       this.getCharacters();
     },
     mounted(){
-      console.log(this.store)
+      // console.log(this.store)
     },
     
   }

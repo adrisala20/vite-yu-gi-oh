@@ -5,7 +5,7 @@
     <h5 class="card-title">{{ title }}</h5>
     <p class="card-text">
         <span>{{ status }}</span> <br>
-        <span>{{ text }}</span>
+       
     </p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
@@ -15,9 +15,7 @@
 <script>
     export default {
         name:'CardComponent',
-        props:[
-            'id','name', 'status','image'
-            ],
+        props:['id','title', 'status','image']
     }
 </script>
 
