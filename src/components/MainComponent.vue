@@ -1,8 +1,9 @@
 <template>
     <main>
         <div class="container">
-            <select class="py-1 my-3" name="select" id="selectid">
+            <select class="py-1 my-3" name="select" >
                 <option value="first">scegli </option>
+                <option value="second">2</option>
             </select>
            <CardList />
         </div>
@@ -23,6 +24,9 @@ import {store} from '../store.js';
 <style lang="scss" scoped>
 main{
     background-color: orange;
+};
+select{
+    width: 200px;
 }
 
 </style>

@@ -5,6 +5,7 @@
 </template>
 
 <script>
+  
   import {store} from './store.js';
   import axios from 'axios';
   import HeaderComponent from './components/HeaderComponent.vue';
@@ -23,14 +24,20 @@
       }
     },
     methods:{
-     getCharacters(){
-      axios.get(this.store.apiUrl).then((res)=>{
-        this.store.card = res.data.data, console.log(this.store.card[0]);
-      })
+     getCards(){
+      axios.get(this.store.apiUrl + this.store.endPoints.cards, this.store.options).then((res)=>{
+        this.store.card = res.data.data;
+      
+        // console.log(this.store.card[0]);
+      }).catch((error)=>{
+        this.store.error.message = error.message;
+      }).finally(()=>{
+        this.store.loading = false;
+      });
      }
     },
     created(){
-      this.getCharacters();
+      this.getCards();
     },
     mounted(){
       // console.log(this.store)

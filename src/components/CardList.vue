@@ -1,22 +1,27 @@
 <template>
 
     <div class="container card-list">
-    <h4 class="text-light bg-black p-3">Found {{ store.card.length }} cards</h4>
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-3" v-for="card in store.card" :key="card.id" > 
-            <CardComponent :id="card.id" :title="card.name" :image="card.card_images[0].image_url" :type="card.archetype"/>
+        
+        <div class="alert alert-danger " v-if="store.error.message">{{ store.error.message }}</div>
+
+        <!-- <h4 class="text-light bg-black p-3">Found {{ store.card.length }} cards</h4> -->
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-3" v-for="card in store.card" :key="card.id" > 
+                <CardComponent :id="card.id" :title="card.name" :image="card.card_images[0].image_url" :type="card.archetype"/>
+             </div>
         </div>
-    </div> 
-</div>
+    </div>
 </template>
 
 <script>
     import { store } from '../store.js';
-    import CardComponent from './CardComponent.vue'
+    import CardComponent from './CardComponent.vue';
+    import ApiLoader from './ApiLoader.vue';
     export default {
         name:'CardList',
         components:{
             CardComponent,
+            ApiLoader,
         },
             data(){
                 return{
