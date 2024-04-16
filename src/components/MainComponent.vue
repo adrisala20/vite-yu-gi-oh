@@ -1,10 +1,11 @@
 <template>
     <main>
         <div class="container">
-            <select class="py-1 my-3" name="select" >
-                <option value="">filtra ricerca</option>
-                <option value="archetype">Archetype</option>
-            </select>
+            <select class="py-1 my-3" name="select" @change="$emit('searchArchetype')" v-model="store.archetypeFilter" >
+                <option value="all">filtra ricerca</option> 
+                <option :value="archetype.archetype_name" v-for="archetype in store.archetypeList">
+                {{ archetype.archetype_name }}</option>
+            </select> 
            <CardList />
         </div>
     </main>

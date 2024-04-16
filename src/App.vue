@@ -1,6 +1,6 @@
 <template>
   <HeaderComponent />
-  <MainComponent />
+  <MainComponent @searchArchetype="setParams"/>
   
 </template>
 
@@ -24,11 +24,30 @@
       }
     },
     methods:{
+      setParams(){
+        if(this.store.archetypeFilter){
+          this.store.option.params.archetype = this.store.archetypeFilter
+        }else{
+          delete this.store.option.params.archetype
+        }
+        this.getCards();
+      },
+
      getCards(){
-      axios.get(this.store.apiUrl + this.store.endPoints.cards, this.store.options).then((res)=>{
-        this.store.card = res.data.data;
-        this.store.total = res.data.meta.total_rows;
-        // console.log(this.store.card[0]);
+      this.store.loading = true;
+      this.store.error.message = null;
+      axios.get(this.store.apiUrl + this.store.endPoints.cards, this.store.option).then((res)=>{
+        this.store.cards = res.data.data;
+        console.log(this.store.cards);
+      }).catch((error)=>{
+        this.store.error.message = error.message;
+      }).finally(()=>{
+        this.store.loading = false;
+      });
+     },
+     getArchetype(){
+      axios.get(this.store.apiUrl + this.store.endPoints.archetype).then((res)=>{
+        this.store.archetypeList = res.data.slice(0,20);
       }).catch((error)=>{
         this.store.error.message = error.message;
       }).finally(()=>{
@@ -38,6 +57,7 @@
     },
     created(){
       this.getCards();
+      this.getArchetype();
     },
     mounted(){
       // console.log(this.store)
