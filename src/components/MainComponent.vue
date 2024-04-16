@@ -2,8 +2,8 @@
     <main>
         <div class="container">
             <select class="py-1 my-3" name="select" >
-                <option value="first">scegli </option>
-                <option value="second">2</option>
+                <option value="">filtra ricerca</option>
+                <option value="archetype">Archetype</option>
             </select>
            <CardList />
         </div>

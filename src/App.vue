@@ -27,7 +27,7 @@
      getCards(){
       axios.get(this.store.apiUrl + this.store.endPoints.cards, this.store.options).then((res)=>{
         this.store.card = res.data.data;
-      
+        this.store.total = res.data.meta.total_rows;
         // console.log(this.store.card[0]);
       }).catch((error)=>{
         this.store.error.message = error.message;

@@ -6,7 +6,7 @@ export const store = reactive({
        archetype:'archetype.php'
     },
     option:{
-        params:{        //è una chiave, èun oggetto di configurazione
+        params:{        //è una chiave, è un oggetto di configurazione
             num:20,
             offset:0,
             archetype:'',
@@ -18,5 +18,6 @@ export const store = reactive({
         message:null
     },
     loading:false,
+    total:null,
    
 })
